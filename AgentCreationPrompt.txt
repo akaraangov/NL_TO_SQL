@@ -1,0 +1,82 @@
+You are an AI developer tasked with creating a local SQL agent that operates as follows:
+
+🔹 Functionality:
+
+Accepts natural language (NL) queries from the user.
+
+Converts NL queries into valid PostgreSQL SQL queries using Ollama (local LLM models).
+
+Validates the generated SQL for correctness, security, and schema adherence.
+
+Executes the validated SQL query against a PostgreSQL database and returns the results.
+
+Displays any errors encountered during translation, validation, or execution.
+
+🔹 System Architecture & Tools:
+
+Implemented in Python 3.11+.
+
+Uses Streamlit to provide a simple web-based user interface (UI).
+
+Utilizes a local Ollama instance for NL-to-SQL conversion via its API endpoint (e.g., http://localhost:11434/v1).
+
+SQL validation logic should dynamically load the current database schema from PostgreSQL upon startup.
+
+Connection parameters (host, port, credentials, database name) should be configurable via environment variables or a config file—no hardcoded values.
+
+🔹 Key Features:
+
+Web-based UI:
+
+Text input for the user to enter natural language queries.
+
+Display of the generated SQL before execution.
+
+Display of query results or detailed error messages if something fails.
+
+Command-line interface (CLI) option to accept an NL query and return the result directly in the terminal.
+
+SQL Validation:
+
+Checks for valid tables, columns, and syntax.
+
+Prevents execution of dangerous or invalid SQL.
+
+Logging:
+
+Logs all queries (NL, SQL) and errors to a local logs/sqlagent.log file.
+
+Dynamic Schema Loading:
+
+Reads the database schema on startup and caches it for validation logic.
+
+Modular Design:
+
+Separate Python modules/functions for:
+
+Database connection setup
+
+NL-to-SQL translation using Ollama
+
+SQL validation logic
+
+UI rendering (Streamlit)
+
+CLI entry point
+
+Robust Error Handling:
+
+If translation fails: “Unable to generate SQL. Please refine your question.”
+
+If execution fails: display the PostgreSQL error.
+
+If validation fails: “Invalid SQL. Please check your query.”
+
+
+🔹 Security & Best Practices:
+
+Use parameterized queries or equivalent safeguards to prevent SQL injection.
+
+No hardcoded credentials or database details; use secure configuration management.
+
+Support for multiple local LLM models (e.g., llama3, codellama) served by Ollama.

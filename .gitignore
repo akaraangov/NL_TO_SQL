@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+local_models/
+LOCAL_MODELS/
+*.egg-info/
+dist/
+build/
+
+# IDE specific
+.vscode/
+.idea/
+
+# Secrets
+.env
+
+# Logs
+logs/*.log
+!logs/.gitkeep # if you want to keep the directory
+
+# Streamlit
+.streamlit/
