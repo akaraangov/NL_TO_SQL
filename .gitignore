@@ -13,6 +13,8 @@ LOCAL_MODELS/
 dist/
 build/
 
+*.bat
+
 # IDE specific
 .vscode/
 .idea/
